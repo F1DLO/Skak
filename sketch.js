@@ -4,4 +4,6 @@ function setup() {
 
 function draw() {
   background(135);
+  LinjeOpdeling();
+  FeltOpdeling();
 }

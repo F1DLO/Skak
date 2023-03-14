@@ -7,8 +7,12 @@ let x;
 let y;
 let position;
 
+let pawn;
+
 function setup() {
   createCanvas(WIDTH+100, HEIGHT+100);
+
+  pawn = new Pawn(225, 125, 50, 50);
 }
 
 function draw() {
@@ -32,6 +36,8 @@ function draw() {
     text(brætX[række], 100 * (række + 1) + 40, HEIGHT+50); // 100 på x-aksen * med række + 1 for at gå 1 kvadrat ud og til sidst + 40 for at komme ind i midten
     text(brætY[række], 50, 100 * (række + 1) - 40); //Det samme som over hvor begge bruger [række] som index som der tæller fra 0 til 7
   }
+
+  pawn.draw();
 }
 
 
@@ -60,4 +66,6 @@ function mousePressed() {
   )
   
   console.log(trans.get(nummerX), nummerY)
+
+  console.log(trans.get(floor(pawn.x / 100)), floor(pawn.x / 125)*-1+8)
 }

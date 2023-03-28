@@ -9,6 +9,4 @@ class Pawn {
     draw() {
         rect(this.x, this.y, this.w, this.h);
     }
-
-    if 
 }

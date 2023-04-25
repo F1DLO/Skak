@@ -82,14 +82,8 @@ function draw() {
   }
 }
 
-class bonde {
-  constructor() {
-    this.x = x
-    this
-  }
-}
 
-function mousePressed() {
+function mouseClicked() {
   console.log(floor(mouseX/100) - 1)
   console.log(floor(mouseY/100))
 

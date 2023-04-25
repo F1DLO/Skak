@@ -82,7 +82,12 @@ function draw() {
   }
 }
 
-
+class bonde {
+  constructor() {
+    this.x = x
+    this
+  }
+}
 
 function mousePressed() {
   console.log(floor(mouseX/100) - 1)
@@ -92,9 +97,69 @@ function mousePressed() {
   MusY = floor(mouseY/100)
   
   temp = skakBræt[MusY][MusX]
+  //console.log(temp)
 
-  if (skakBræt[MusY][MusX] != '') {
+  // Sorte brikker
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'sb') { // bonde
     skakBræt[MusY][MusX] = ''
     skakBræt[MusY + 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'st') { // tårn
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'ss') { // springer
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 2][MusX + 1] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'sl') { // løber
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 1][MusX + 1] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'sd') { // droning
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'sk') { // konge
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 1][MusX] = temp
+  }
+
+  // Hvide brikker
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'hb') { // bonde
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'ht') { // tårn
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'hs') { // springer
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 2][MusX - 1] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'hl') { // løber
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 1][MusX - 1] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'hd') { // droning
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 1][MusX] = temp
+  }
+
+  if (skakBræt[MusY][MusX] != '' && temp === 'hk') { // konge
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY - 1][MusX] = temp
   }
 }

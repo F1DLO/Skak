@@ -84,8 +84,8 @@ function draw() {
 
 
 function mouseClicked() {
-  console.log(floor(mouseX/100) - 1)
-  console.log(floor(mouseY/100))
+  //console.log(floor(mouseX/100) - 1)
+  //console.log(floor(mouseY/100))
 
   MusX = floor(mouseX/100) - 1
   MusY = floor(mouseY/100)
@@ -93,67 +93,43 @@ function mouseClicked() {
   temp = skakBræt[MusY][MusX]
   //console.log(temp)
 
-  // Sorte brikker
+  //Hvid og sort bonde
+  if (temp === 'sb' || temp === 'hb') {
+    let bonde = new Bonde(MusX, MusY, temp[0])
+    if (MusY > 6 || MusY < 1) {
+      return
+    } else 
+      bonde.frem()
+      console.table(skakBræt)
+  } 
 
-  if (skakBræt[MusY][MusX] != '' && temp === 'sb') { // bonde
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
+  //Hvid og sort tårn
+  if (temp === 'st' || temp === 'ht') {
+    let tårn = new Tårn(MusX, MusY, temp[0])
+    tårn.frem()
+  } 
+  
+  //Hvid og sort løber
+  if (temp === 'sl' || temp === 'hl') {
+    let løber = new Løber(MusX, MusY, temp[0])
+    løber.frem()
   }
 
-  if (skakBræt[MusY][MusX] != '' && temp === 'st') { // tårn
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
+  //Hvid og sort springer
+  if (temp === 'ss' || temp === 'hs') {
+    let springer = new Springer(MusX, MusY, temp[0])
+    springer.frem()
   }
 
-  if (skakBræt[MusY][MusX] != '' && temp === 'ss') { // springer
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 2][MusX + 1] = temp
+  //Hvid og sort dronning
+  if (temp === 'sd' || temp === 'hd') {
+    let dronning = new Dronning(MusX, MusY, temp[0])
+    dronning.frem()
   }
 
-  if (skakBræt[MusY][MusX] != '' && temp === 'sl') { // løber
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX + 1] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'sd') { // droning
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'sk') { // konge
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
-  }
-
-  // Hvide brikker
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'hb') { // bonde
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 1][MusX] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'ht') { // tårn
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 1][MusX] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'hs') { // springer
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 2][MusX - 1] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'hl') { // løber
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 1][MusX - 1] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'hd') { // droning
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 1][MusX] = temp
-  }
-
-  if (skakBræt[MusY][MusX] != '' && temp === 'hk') { // konge
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY - 1][MusX] = temp
+  //Hvid og sort konge
+  if (temp === 'sk' || temp === 'hk') {
+    let konge = new Dronning(MusX, MusY, temp[0])
+    konge.frem()
   }
 }

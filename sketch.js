@@ -83,64 +83,15 @@ function draw() {
 }
 
 
-<<<<<<< Updated upstream
 function mouseClicked() {
   //console.log(floor(mouseX/100) - 1)
   //console.log(floor(mouseY/100))
-=======
-  }
-
-  frem(){
-    if (this.farve === 's') {
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY + 1][MusX] = temp      
-
-    } else if (this.farve === 'h'){
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY - 1][MusX] = temp      
-      
-    }
-  }
-}
-
-class Tårn {
-  constructor(x,y,farve) {
-    this.x = x
-    this.y = y
-    this.farve = farve
-    console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
-
-  }
-
-  frem(){
-    if (this.farve === 's') {
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY + 1][MusX] = temp      
-
-    } else if (this.farve === 'h'){
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY - 1][MusX] = temp      
-      
-    }
-  }
-}
-
-function mousePressed() {
-  console.log(floor(mouseX/100) - 1)
-  console.log(floor(mouseY/100))
->>>>>>> Stashed changes
 
   MusX = floor(mouseX/100) - 1
   MusY = floor(mouseY/100)
   
   temp = skakBræt[MusY][MusX]
-<<<<<<< Updated upstream
   //console.log(temp)
-=======
-  console.log(temp)
-
-  // Sorte brikker
->>>>>>> Stashed changes
 
   //Hvid og sort bonde
   if (temp === 'sb' || temp === 'hb') {
@@ -152,7 +103,6 @@ function mousePressed() {
       console.table(skakBræt)
   } 
 
-<<<<<<< Updated upstream
   //Hvid og sort tårn
   if (temp === 'st' || temp === 'ht') {
     let tårn = new Tårn(MusX, MusY, temp[0])
@@ -181,7 +131,5 @@ function mousePressed() {
   if (temp === 'sk' || temp === 'hk') {
     let konge = new Dronning(MusX, MusY, temp[0])
     konge.frem()
-=======
->>>>>>> Stashed changes
   }
 }

@@ -89,6 +89,7 @@ class Bonde {
     this.farve = farve
     console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
 
+<<<<<<< HEAD
   }
 
   frem(){
@@ -104,6 +105,9 @@ class Bonde {
   }
 }
 
+=======
+
+>>>>>>> e5484f64606fda53a42aabb32233d63dfec4aa93
 function mousePressed() {
   console.log(floor(mouseX/100) - 1)
   console.log(floor(mouseY/100))
@@ -112,6 +116,7 @@ function mousePressed() {
   MusY = floor(mouseY/100)
   
   temp = skakBræt[MusY][MusX]
+<<<<<<< HEAD
   console.log(temp)
 
   // Sorte brikker
@@ -122,5 +127,11 @@ function mousePressed() {
     console.log(temp[0],temp[1])
     bonde.frem()
 
+=======
+
+  if (skakBræt[MusY][MusX] != '') {
+    skakBræt[MusY][MusX] = ''
+    skakBræt[MusY + 1][MusX] = temp
+>>>>>>> e5484f64606fda53a42aabb32233d63dfec4aa93
   }
 }

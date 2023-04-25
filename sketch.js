@@ -20,6 +20,7 @@ let WIDTH = 800; //Bredde for spillebrættet (x-aksen)
 let HEIGHT = 800; //Højde for spillebrættet (y-aksen)
 let KvadratBredde = WIDTH / 8; //Bredden er hvert felt på brettet
 
+
 let skakBræt = [ //Det som sker herunder er at vi lavet et 2-dimentionelt array. Hvad dette kan, er at opbevare data for os. I vores tilfælde om de skalbrukker som vi bruger. b = bonde, t = tårn, s = springer, l = løber, d = dronning og k = konge. Når der står enten s eller h foran betyder det at det er enten en hvid eller sort brik
   ['st','ss','sl','sd','sk','sl','ss','st'],
   ['sb','sb','sb','sb','sb','sb','sb','sb',],
@@ -81,10 +82,45 @@ function draw() {
   }
 }
 
+class Bonde {
+  constructor(x,y,farve) {
+    this.x = x
+    this.y = y
+    this.farve = farve
+    console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
 
-class skakBrikker {
-  constructor(x,y,billede) {
-    
   }
 
+  frem(){
+    if (this.farve === 's') {
+      skakBræt[MusY][MusX] = ''
+      skakBræt[MusY + 1][MusX] = temp      
+
+    } else if (this.farve === 'h'){
+      skakBræt[MusY][MusX] = ''
+      skakBræt[MusY - 1][MusX] = temp      
+      
+    }
+  }
+}
+
+function mousePressed() {
+  console.log(floor(mouseX/100) - 1)
+  console.log(floor(mouseY/100))
+
+  MusX = floor(mouseX/100) - 1
+  MusY = floor(mouseY/100)
+  
+  temp = skakBræt[MusY][MusX]
+  console.log(temp)
+
+  // Sorte brikker
+
+  //Hvid og sort bonde
+  if (temp === 'sb' || temp === 'hb') {
+    let bonde = new Bonde(MusX, MusY, temp[0])
+    console.log(temp[0],temp[1])
+    bonde.frem()
+
+  }
 }

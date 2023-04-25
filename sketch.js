@@ -119,14 +119,45 @@ function mousePressed() {
   MusY = floor(mouseY/100)
   
   temp = skakBræt[MusY][MusX]
-  console.log(temp)
-
-  // Sorte brikker
+  //console.log(temp)
 
   //Hvid og sort bonde
   if (temp === 'sb' || temp === 'hb') {
-    let bonde = new Bonde(MusX, MusY, temp)
-    bonde.frem()
+    let bonde = new Bonde(MusX, MusY, temp[0])
+    if (MusY > 6 || MusY < 1) {
+      return
+    } else 
+      bonde.frem()
+      console.table(skakBræt)
+  } 
 
+  //Hvid og sort tårn
+  if (temp === 'st' || temp === 'ht') {
+    let tårn = new Tårn(MusX, MusY, temp[0])
+    tårn.frem()
+  } 
+  
+  //Hvid og sort løber
+  if (temp === 'sl' || temp === 'hl') {
+    let løber = new Løber(MusX, MusY, temp[0])
+    løber.frem()
+  }
+
+  //Hvid og sort springer
+  if (temp === 'ss' || temp === 'hs') {
+    let springer = new Springer(MusX, MusY, temp[0])
+    springer.frem()
+  }
+
+  //Hvid og sort dronning
+  if (temp === 'sd' || temp === 'hd') {
+    let dronning = new Dronning(MusX, MusY, temp[0])
+    dronning.frem()
+  }
+
+  //Hvid og sort konge
+  if (temp === 'sk' || temp === 'hk') {
+    let konge = new Dronning(MusX, MusY, temp[0])
+    konge.frem()
   }
 }

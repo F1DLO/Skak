@@ -87,49 +87,49 @@ function mouseClicked() {
   //console.log(floor(mouseX/100) - 1)
   //console.log(floor(mouseY/100))
 
-  MusX = floor(mouseX/100) - 1
-  MusY = floor(mouseY/100)
+  MusX = floor(mouseX/100) - 1 // laver musens x kordinater om til tal på pladen hvor man så minuser med 1 fordi der er det grå felt i vejen
+  MusY = floor(mouseY/100) // laver musens y kordinater om til tal på pladen
   
-  temp = skakBræt[MusY][MusX]
+  temp = skakBræt[MusY][MusX] // midlertidig brik alt efter hvad man kklikker på
   //console.log(temp)
 
   //Hvid og sort bonde
-  if (temp === 'sb' || temp === 'hb') {
-    let bonde = new Bonde(MusX, MusY, temp[0])
-    if (MusY > 6 || MusY < 1) {
+  if (temp === 'sb' || temp === 'hb') { // Hvis midlertidig brik er lig med enten sort eller hvis bonde
+    let bonde = new Bonde(MusX, MusY, temp[0]) // laver ny variable ud fra klassen Bonde som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    if (MusY > 6 || MusY < 1) { // Hvis musens y kordinat enten er støre en 6 eller mindre end 1
       return
     } else 
-      bonde.frem()
-      console.table(skakBræt)
+      bonde.frem() // ellers kan bonden rykke frem
+      console.table(skakBræt) // laver også en visualisering af arraylisterne i konsollen 
   } 
 
   //Hvid og sort tårn
-  if (temp === 'st' || temp === 'ht') {
-    let tårn = new Tårn(MusX, MusY, temp[0])
-    tårn.frem()
+  if (temp === 'st' || temp === 'ht') { // Hvis midlertidig brik er lig med enten sort eller hvidt tårn
+    let tårn = new Tårn(MusX, MusY, temp[0]) // laver ny variable ud fra klassen Tårn som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    tårn.frem() // og tårn rykker frem
   } 
   
   //Hvid og sort løber
-  if (temp === 'sl' || temp === 'hl') {
-    let løber = new Løber(MusX, MusY, temp[0])
-    løber.frem()
+  if (temp === 'sl' || temp === 'hl') { // Hvis midlertidig brik er lig med enten sort eller hvid løber
+    let løber = new Løber(MusX, MusY, temp[0]) // laver ny variable ud fra klassen Løber som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    løber.frem() // og løber rykke frem
   }
 
   //Hvid og sort springer
-  if (temp === 'ss' || temp === 'hs') {
-    let springer = new Springer(MusX, MusY, temp[0])
-    springer.frem()
+  if (temp === 'ss' || temp === 'hs') { // Hvis midlertidig brik er lig med enten sort eller hvid springer
+    let springer = new Springer(MusX, MusY, temp[0]) // laver ny variable ud fra klassen Springer som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    springer.frem() // springer rykker frem
   }
 
   //Hvid og sort dronning
-  if (temp === 'sd' || temp === 'hd') {
-    let dronning = new Dronning(MusX, MusY, temp[0])
-    dronning.frem()
+  if (temp === 'sd' || temp === 'hd') { // Hvis midlertidig brik er lig med enten sort eller hvid dronning
+    let dronning = new Dronning(MusX, MusY, temp[0]) // laver ny variable ud fra klassen Dronning som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    dronning.frem() // droning går frem
   }
 
   //Hvid og sort konge
-  if (temp === 'sk' || temp === 'hk') {
-    let konge = new Dronning(MusX, MusY, temp[0])
-    konge.frem()
+  if (temp === 'sk' || temp === 'hk') { // Hvis midlertidig brik er lig med enten sort eller hvid konge
+    let konge = new Konge(MusX, MusY, temp[0])// laver ny variable ud fra klassen Konge som har en constructer med x, y og farve (temp[0] er det første bogstav i '')
+    konge.frem() // konge går frem
   }
 }

@@ -82,21 +82,27 @@ function draw() {
   }
 }
 
-class Bonde {
+class main {
   constructor(x,y,farve) {
     this.x = x
     this.y = y
     this.farve = farve
-    //console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
+  }
+}
 
+
+class Bonde extends main {
+  constructor(x,y,farve) {
+    super(x,y,farve);
+    //console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
   }
 
   frem(){
-    if (this.farve === 's') {
+    if (this.farve === 'sb') {
       skakBræt[MusY][MusX] = ''
       skakBræt[MusY + 1][MusX] = temp      
 
-    } else if (this.farve === 'h'){
+    } else if (this.farve === 'hb'){
       skakBræt[MusY][MusX] = ''
       skakBræt[MusY - 1][MusX] = temp      
       
@@ -119,14 +125,8 @@ function mousePressed() {
 
   //Hvid og sort bonde
   if (temp === 'sb' || temp === 'hb') {
-    let bonde = new Bonde(MusX, MusY, temp[0])
-    console.log(temp[0],temp[1])
+    let bonde = new Bonde(MusX, MusY, temp)
     bonde.frem()
 
-
-  if (skakBræt[MusY][MusX] != '') {
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
-  }
   }
 }

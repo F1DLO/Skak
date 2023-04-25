@@ -82,51 +82,54 @@ function draw() {
   }
 }
 
-class Bonde {
-  constructor(x,y,farve) {
-    this.x = x
-    this.y = y
-    this.farve = farve
-    //console.log('MusX = ',this.x, 'MusY = ', this,y, 'temp[1] = ',this.farve)
 
-  }
-
-  frem(){
-    if (this.farve === 's') {
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY + 1][MusX] = temp      
-
-    } else if (this.farve === 'h'){
-      skakBræt[MusY][MusX] = ''
-      skakBræt[MusY - 1][MusX] = temp      
-      
-    }
-  }
-}
-
-
-function mousePressed() {
-  console.log(floor(mouseX/100) - 1)
-  console.log(floor(mouseY/100))
+function mouseClicked() {
+  //console.log(floor(mouseX/100) - 1)
+  //console.log(floor(mouseY/100))
 
   MusX = floor(mouseX/100) - 1
   MusY = floor(mouseY/100)
   
   temp = skakBræt[MusY][MusX]
-  console.log(temp)
-
-  // Sorte brikker
+  //console.log(temp)
 
   //Hvid og sort bonde
   if (temp === 'sb' || temp === 'hb') {
     let bonde = new Bonde(MusX, MusY, temp[0])
-    console.log(temp[0],temp[1])
-    bonde.frem()
+    if (MusY > 6 || MusY < 1) {
+      return
+    } else 
+      bonde.frem()
+      console.table(skakBræt)
+  } 
 
-
-  if (skakBræt[MusY][MusX] != '') {
-    skakBræt[MusY][MusX] = ''
-    skakBræt[MusY + 1][MusX] = temp
+  //Hvid og sort tårn
+  if (temp === 'st' || temp === 'ht') {
+    let tårn = new Tårn(MusX, MusY, temp[0])
+    tårn.frem()
+  } 
+  
+  //Hvid og sort løber
+  if (temp === 'sl' || temp === 'hl') {
+    let løber = new Løber(MusX, MusY, temp[0])
+    løber.frem()
   }
+
+  //Hvid og sort springer
+  if (temp === 'ss' || temp === 'hs') {
+    let springer = new Springer(MusX, MusY, temp[0])
+    springer.frem()
+  }
+
+  //Hvid og sort dronning
+  if (temp === 'sd' || temp === 'hd') {
+    let dronning = new Dronning(MusX, MusY, temp[0])
+    dronning.frem()
+  }
+
+  //Hvid og sort konge
+  if (temp === 'sk' || temp === 'hk') {
+    let konge = new Dronning(MusX, MusY, temp[0])
+    konge.frem()
   }
 }
